@@ -8,16 +8,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Book;
+import com.example.demo.model.Author;
 
 @RestController
 @CrossOrigin
 public class DemoController {
 
-	@RequestMapping("/test")
-	public List<Book> readTest() {
+	@RequestMapping("/books")
+	public List<Book> readBooks() {
 		List<Book> list = new ArrayList<>();
 		list.add(new Book(1, "Hello world!", "JK . Rowling"));
 		list.add(new Book(2, "Lord of The Rings", "Tolkien"));
+		return list;
+	}
+
+	@RequestMapping("/authors")
+	public List<Author> readAuthors() {
+		List<Author> list = new ArrayList<>();
+		list.add(new Author(1, "JK . Rowling"));
+		list.add(new Author(2, "Tolkien"));
 		return list;
 	}
 }
