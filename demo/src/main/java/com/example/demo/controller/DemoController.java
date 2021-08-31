@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Book;
 import com.example.demo.model.Author;
+import com.example.demo.model.Book;
 
 @RestController
 @CrossOrigin
 public class DemoController {
 
-	@RequestMapping("/books")
+	@GetMapping("/books")
 	public List<Book> readBooks() {
 		List<Book> list = new ArrayList<>();
 		list.add(new Book(1, "Hello world!", "JK . Rowling"));
@@ -22,7 +22,7 @@ public class DemoController {
 		return list;
 	}
 
-	@RequestMapping("/authors")
+	@GetMapping("/authors")
 	public List<Author> readAuthors() {
 		List<Author> list = new ArrayList<>();
 		list.add(new Author(1, "JK . Rowling"));
